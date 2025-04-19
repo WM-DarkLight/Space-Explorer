@@ -187,19 +187,4 @@ For other platforms, build the project with `npm run build` and serve the `out` 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👏 Acknowledgments
-
-- Space imagery from [NASA](https://www.nasa.gov/)
-- Icons from [Lucide](https://lucide.dev/)
-- UI components from [shadcn/ui](https://ui.shadcn.com/)
-- Font from [Google Fonts](https://fonts.google.com/)
-
-## 📬 Contact
-
-- GitHub: [space-explorer](https://github.com/space-explorer)
-- Twitter: [@spaceexplorer](https://twitter.com/spaceexplorer)
-- Email: contact@spaceexplorer.com
-
----
-
-Made with ❤️ by the Space Explorer team
+--------------------------------------------------------------------------------------------------
