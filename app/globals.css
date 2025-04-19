@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 270 100% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 270 100% 60%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 270 100% 60%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 270 100% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 270 100% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 270 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Article content styling */
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  scroll-margin-top: 100px;
+}
+
+.article-content h1 {
+  @apply text-3xl font-bold mt-8 mb-4 text-white;
+}
+
+.article-content h2 {
+  @apply text-2xl font-bold mt-6 mb-3 text-white;
+  @apply border-b border-purple-500/20 pb-2;
+}
+
+.article-content h3 {
+  @apply text-xl font-bold mt-5 mb-2 text-white;
+}
+
+.article-content p {
+  @apply mb-4 text-gray-300;
+}
+
+.article-content ul,
+.article-content ol {
+  @apply mb-4 ml-6;
+}
+
+.article-content li {
+  @apply mb-1;
+}
+
+.article-content a {
+  @apply text-purple-400 hover:text-purple-300 transition-colors;
+}
+
+.article-content blockquote {
+  @apply border-l-4 border-purple-500 pl-4 italic my-4 text-gray-400;
+}
+
+.article-content pre {
+  @apply bg-black/40 p-4 rounded-lg overflow-x-auto my-4;
+}
+
+.article-content code {
+  @apply bg-black/40 px-1 py-0.5 rounded text-purple-300;
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-all duration-300;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-1 shadow-lg;
+}
+
+/* Animated underline */
+.animated-underline {
+  @apply relative;
+}
+
+.animated-underline::after {
+  @apply absolute bottom-0 left-0 h-0.5 w-0 bg-purple-500 transition-all duration-300;
+  content: "";
+}
+
+.animated-underline:hover::after {
+  @apply w-full;
+}
+
+/* Accessibility styles */
+.high-contrast {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --primary: 270 100% 70%;
+  --border: 0 0% 80%;
+}
+
+.reduced-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+.dyslexic-font {
+  font-family: "OpenDyslexic", sans-serif;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  line-height: 1.5;
+}
+
+/* Multi-language support */
+[lang="ar"],
+[lang="he"] {
+  direction: rtl;
+}
+
+[lang="zh"],
+[lang="ja"],
+[lang="ko"] {
+  font-family: "Noto Sans CJK", sans-serif;
+}
+
+/* Custom scrollbar styling */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 15, 25, 0.95);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(128, 90, 213, 0.8), rgba(76, 29, 149, 0.8));
+  border-radius: 8px;
+  border: 2px solid rgba(15, 15, 25, 0.95);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgba(139, 92, 246, 0.9), rgba(91, 33, 182, 0.9));
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(15, 15, 25, 0.95);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 90, 213, 0.8) rgba(15, 15, 25, 0.95);
+}
+
+/* For dark mode */
+.dark ::-webkit-scrollbar-track {
+  background: rgba(10, 10, 15, 0.95);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  border-color: rgba(10, 10, 15, 0.95);
+}
+
+.dark ::-webkit-scrollbar-corner {
+  background: rgba(10, 10, 15, 0.95);
+}
+
+/* For thin scrollbars in specific components */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-scrollbar {
+  scrollbar-width: thin;
+}
